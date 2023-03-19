@@ -2,7 +2,7 @@ var scoreEl = document.getElementById("score")
 var mainEl = document.getElementById("main")
 var startButton = document.getElementById("start-button")
 var highscoreButton = document.getElementById("highscore-button")
-
+//var quizQuestions = document.getElementById("questions")
 var score = 60;
 
 
@@ -14,6 +14,7 @@ startButton.addEventListener("click", function (event) {
 
     //replace this line with calling game function
     mainEl.textContent = "Question 1";
+    //quizQuestions.textContent = "Placeholder for question 1?"
 })
 
 
@@ -28,8 +29,11 @@ function setTime() {
         if (score === 0) {
             clearInterval(timerInterval);
             mainEl.textContent = "SCORE 0: Try Again"
-            //else answers last question correctly
+        } else if (lastUserInput === true) {
+            var finalScore = score;
+            scoreEl.textContent = finalScore;
         }
+        //else answers last question correctly
     }, 1000);
 }
 
@@ -55,48 +59,48 @@ function savescore() {
 
 
 
-// quiz questions and answers
-var quizQuestions = [
-    {
-        question: "Placeholder for Question 1?",
+/* quiz questions and answers
+//var quizQuestions = [
+{
+    question: "Placeholder for Question 1?",
         answers: {
-            a: 'possible answer 1',
+        a: 'possible answer 1',
             b: 'possible correct answer 2',
-            c: 'possible answer 3',
-            d: 'possible answer 4'
-        },
-        correctAnswer: 'b'
+                c: 'possible answer 3',
+                    d: 'possible answer 4'
     },
-    {
-        question: "Placeholder for Question 2?",
+    correctAnswer: 'b'
+},
+{
+    question: "Placeholder for Question 2?",
         answers: {
-            a: 'possible answer 1',
+        a: 'possible answer 1',
             b: 'possible answer 2',
-            c: 'possible answer 3',
-            d: 'possible correct answer 4'
-        },
-        correctAnswer: 'd'
+                c: 'possible answer 3',
+                    d: 'possible correct answer 4'
     },
-    {
-        question: "Placeholder for Question 3?",
+    correctAnswer: 'd'
+},
+{
+    question: "Placeholder for Question 3?",
         answers: {
-            a: 'possible answer 1',
+        a: 'possible answer 1',
             b: 'possible answer 2',
-            c: 'possible correct answer 3',
-            d: 'possible answer 4'
-        },
-        correctAnswer: 'c'
+                c: 'possible correct answer 3',
+                    d: 'possible answer 4'
     },
-    {
-        question: "Placeholder for Question 4?",
+    correctAnswer: 'c'
+},
+{
+    question: "Placeholder for Question 4?",
         answers: {
-            a: 'possible correct answer 1',
+        a: 'possible correct answer 1',
             b: 'possible answer 2',
-            c: 'possible answer 3',
-            d: 'possible answer 4'
-        },
-        correctAnswer: 'a'
-    }
+                c: 'possible answer 3',
+                    d: 'possible answer 4'
+    },
+    correctAnswer: 'a'
+}
 ];
 
 var quizContainer =
@@ -116,4 +120,8 @@ function generateQuiz(questions, quizContainer, resultsContainer, submitButton) 
 // need a place to store possible answer choices
 var output = [];
 var answers;
+*/
+// for each question:
+for (var i = 0; i < questions.length; i++) {
 
+}
