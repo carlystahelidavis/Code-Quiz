@@ -96,6 +96,24 @@ var quizQuestions = [
             d: 'possible answer 4'
         },
         correctAnswer: 'a'
-    },
+    }
+];
 
-]
+var quizContainer =
+    document.getElementById('quiz');
+var resultsContainer =
+    document.getElementById('results');
+var submitButton =
+    document.getElementById('submit');
+
+//how to create the quiz
+generateQuiz(quizQuestions, quizContainer, resultsContainer, submitButton);
+
+// quiz function and layout 
+function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
+    function showQuestions(questions, quizContainer)
+}
+// need a place to store possible answer choices
+var output = [];
+var answers;
+
