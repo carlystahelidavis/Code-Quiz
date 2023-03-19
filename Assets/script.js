@@ -68,6 +68,34 @@ var quizQuestions = [
         correctAnswer: 'b'
     },
     {
+        question: "Placeholder for Question 2?",
+        answers: {
+            a: 'possible answer 1',
+            b: 'possible answer 2',
+            c: 'possible answer 3',
+            d: 'possible correct answer 4'
+        },
+        correctAnswer: 'd'
+    },
+    {
+        question: "Placeholder for Question 3?",
+        answers: {
+            a: 'possible answer 1',
+            b: 'possible answer 2',
+            c: 'possible correct answer 3',
+            d: 'possible answer 4'
+        },
+        correctAnswer: 'c'
+    },
+    {
+        question: "Placeholder for Question 4?",
+        answers: {
+            a: 'possible correct answer 1',
+            b: 'possible answer 2',
+            c: 'possible answer 3',
+            d: 'possible answer 4'
+        },
+        correctAnswer: 'a'
+    },
 
-    }
 ]
