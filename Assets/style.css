@@ -68,7 +68,7 @@ button {
 
 
 #question-1 {
-    visibility: visible;
+    visibility: hidden;
 }
 
 #question-2 {
@@ -81,4 +81,16 @@ button {
 
 #question-4 {
     visibility: hidden;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button {
+    text-align: center;
+    margin-top: 35%;
+
 }

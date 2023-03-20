@@ -10,6 +10,7 @@ startButton.addEventListener("click", function (event) {
     event.preventDefault;
     setTime();
     startButton.style.visibility = 'hidden';
+    question1.style.visibility = 'visible';
 
     //replace this line with calling game function
     mainEL.textContent = "Placeholder for question 1";
@@ -131,48 +132,83 @@ correctAnswer.addEventListener("click", function () {
 })
 var wrongAnswer1 = document.getElementById("q1a1")
 wrongAnswer1.addEventListener("click", function () {
-    wrongAnswer1.style.color = "red";
+    wrongAnswer1.style.background = "red";
 })
 var wrongAnswer2 = document.getElementById("q1a3")
 wrongAnswer2.addEventListener("click", function () {
-    wrongAnswer2.style.color = "red";
+    wrongAnswer2.style.background = "red";
 })
 var wrongAnswer3 = document.getElementById("q1a4")
 wrongAnswer3.addEventListener("click", function () {
-    wrongAnswer3.style.color = "red";
+    wrongAnswer3.style.background = "red";
 })
 
 // Question #2
 correctAnswer = document.getElementById("q2a3")
 correctAnswer.addEventListener("click", function () {
     correctAnswer.style.background = "green";
-    question1.style.visibility = "hidden";
-    question2.style.visibility = "visible";
+    question2.style.visibility = "hidden";
+    question3.style.visibility = "visible";
 })
+// Wrong Answers (1,2 & 4)
 var wrongAnswer4 = document.getElementById("q2a1")
+wrongAnswer4.addEventListener("click", function () {
+    wrongAnswer4.style.background = "red";
+})
 var wrongAnswer5 = document.getElementById("q2a2")
+wrongAnswer5.addEventListener("click", function () {
+    wrongAnswer5.style.background = "red";
+})
 var wrongAnswer6 = document.getElementById("q2a4")
+wrongAnswer6.addEventListener("click", function () {
+    wrongAnswer6.style.background = "red";
+})
+
 
 
 // Question #3
 correctAnswer = document.getElementById("q3a3")
 correctAnswer.addEventListener("click", function () {
     correctAnswer.style.background = "green";
-    question1.style.visibility = "hidden";
-    question2.style.visibility = "visible";
+    question3.style.visibility = "hidden";
+    question4.style.visibility = "visible";
 })
+
 var wrongAnswer7 = document.getElementById("q3a1")
+wrongAnswer7.addEventListener("click", function () {
+    wrongAnswer7.style.background = "red";
+})
 var wrongAnswer8 = document.getElementById("q3a2")
+wrongAnswer8.addEventListener("click", function () {
+    wrongAnswer8.style.background = "red";
+})
 var wrongAnswer9 = document.getElementById("q3a4")
+wrongAnswer9.addEventListener("click", function () {
+    wrongAnswer9.style.background = "red";
+})
 
 
 // Question #4
 correctAnswer = document.getElementById("q4a1")
 correctAnswer.addEventListener("click", function () {
     correctAnswer.style.background = "green";
-    question1.style.visibility = "hidden";
-    question2.style.visibility = "visible";
+    clearInterval(timerInterval);
+    var passedQuiz = true;
+    return passedQuiz;
+    if (passedQuiz) {
+        console.log("You passed!");
+    }
 })
+
 var wrongAnswer10 = document.getElementById("q4a2")
+wrongAnswer10.addEventListener("click", function () {
+    wrongAnswer10.style.background = "red";
+})
 var wrongAnswer11 = document.getElementById("q4a3")
+wrongAnswer11.addEventListener("click", function () {
+    wrongAnswer11.style.background = "red";
+})
 var wrongAnswer12 = document.getElementById("q4a4")
+wrongAnswer12.addEventListener("click", function () {
+    wrongAnswer12.style.background = "red";
+})
