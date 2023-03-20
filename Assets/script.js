@@ -115,3 +115,64 @@ function savescore() {
 // // for (var i = 0; i < questions.length; i++) {
 
 // // }
+
+var question1 = document.getElementById("question-1")
+var question2 = document.getElementById("question-2")
+var question3 = document.getElementById("question-3")
+var question4 = document.getElementById("question-4")
+// Question #1
+
+var correctAnswer = document.getElementById("q1a2")
+
+correctAnswer.addEventListener("click", function () {
+    correctAnswer.style.background = "green";
+    question1.style.visibility = "hidden";
+    question2.style.visibility = "visible";
+})
+var wrongAnswer1 = document.getElementById("q1a1")
+wrongAnswer1.addEventListener("click", function () {
+    wrongAnswer1.style.color = "red";
+})
+var wrongAnswer2 = document.getElementById("q1a3")
+wrongAnswer2.addEventListener("click", function () {
+    wrongAnswer2.style.color = "red";
+})
+var wrongAnswer3 = document.getElementById("q1a4")
+wrongAnswer3.addEventListener("click", function () {
+    wrongAnswer3.style.color = "red";
+})
+
+// Question #2
+correctAnswer = document.getElementById("q2a3")
+correctAnswer.addEventListener("click", function () {
+    correctAnswer.style.background = "green";
+    question1.style.visibility = "hidden";
+    question2.style.visibility = "visible";
+})
+var wrongAnswer4 = document.getElementById("q2a1")
+var wrongAnswer5 = document.getElementById("q2a2")
+var wrongAnswer6 = document.getElementById("q2a4")
+
+
+// Question #3
+correctAnswer = document.getElementById("q3a3")
+correctAnswer.addEventListener("click", function () {
+    correctAnswer.style.background = "green";
+    question1.style.visibility = "hidden";
+    question2.style.visibility = "visible";
+})
+var wrongAnswer7 = document.getElementById("q3a1")
+var wrongAnswer8 = document.getElementById("q3a2")
+var wrongAnswer9 = document.getElementById("q3a4")
+
+
+// Question #4
+correctAnswer = document.getElementById("q4a1")
+correctAnswer.addEventListener("click", function () {
+    correctAnswer.style.background = "green";
+    question1.style.visibility = "hidden";
+    question2.style.visibility = "visible";
+})
+var wrongAnswer10 = document.getElementById("q4a2")
+var wrongAnswer11 = document.getElementById("q4a3")
+var wrongAnswer12 = document.getElementById("q4a4")
