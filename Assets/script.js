@@ -1,7 +1,7 @@
 var scoreEl = document.getElementById("score")
 var startButton = document.getElementById("start-button")
 var highscoreButton = document.getElementById("highscore-button")
-var quizQuestions = document.getElementById("quiz-questions")
+var mainEl = document.getElementById("main")
 var score = 60;
 
 
@@ -12,7 +12,7 @@ startButton.addEventListener("click", function (event) {
     startButton.style.visibility = 'hidden';
 
     //replace this line with calling game function
-    quizQuestions.textContent = "Placeholder for question 1";
+    mainEL.textContent = "Placeholder for question 1";
 })
 
 // game function
@@ -25,7 +25,7 @@ function setTime() {
         scoreEl.textContent = score;
         if (score === 0) {
             clearInterval(timerInterval);
-            quizQuestions.textContent = "SCORE 0: Try Again"
+            mainEL.textContent = "SCORE 0: Try Again"
         } /*else if (lastUserInput === true) {
                 var finalScore = score;
                 scoreEl.textContent = finalScore;
@@ -39,7 +39,7 @@ function setTime() {
 highscoreButton.addEventListener("click", function (event) {
     event.preventDefault;
     startButton.style.visibility = 'hidden';
-    quizQuestions.textContent = "Highscores";
+    mainEL.textContent = "Highscores";
     savescore();
 })
 

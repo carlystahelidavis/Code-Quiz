@@ -35,7 +35,7 @@ body {
     border-radius: 30px;
 }
 
-#quiz-box {
+.quiz-box {
     position: relative;
     top: 200px;
     text-align: center;
@@ -64,4 +64,21 @@ button {
 .button :hover {
     border-bottom: 2px solid;
     transition: 0.07s;
+}
+
+
+#question-1 {
+    visibility: visible;
+}
+
+#question-2 {
+    visibility: hidden;
+}
+
+#question-3 {
+    visibility: hidden;
+}
+
+#question-4 {
+    visibility: hidden;
 }
