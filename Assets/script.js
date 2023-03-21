@@ -1,11 +1,15 @@
 var scoreEl = document.getElementById("score")
+var mainEl = document.getElementById("main")
 var startButton = document.getElementById("start-button")
 var highscoreButton = document.getElementById("highscore-button")
-var mainEl = document.getElementById("main")
+var submitscoreButton = document.getElementById("submit-button")
+var initialsInput = document.getElementById("initials-input")
+var saveScoreScreen = document.getElementById("save-score")
+
 var score = 60;
+var timerInterval;
+var topScores = [];
 
-
-// init function
 startButton.addEventListener("click", function (event) {
     event.preventDefault;
     setTime();
@@ -16,106 +20,74 @@ startButton.addEventListener("click", function (event) {
     mainEL.textContent = "Placeholder for question 1";
 })
 
-// game function
-// if else with a variable containing correct answer. Wrong answer "else statement" removes time from clock, shakes red, removes answer. Only move on when correct answer is selected
-
 
 function setTime() {
-    var timerInterval = setInterval(function () {
+    return setInterval(function () {
         score--;
         scoreEl.textContent = score;
         if (score === 0) {
             clearInterval(timerInterval);
-            mainEL.textContent = "SCORE 0: Try Again"
-        } /*else if (lastUserInput === true) {
-                var finalScore = score;
-                scoreEl.textContent = finalScore;
-            }*/
-        //else answers last question correctly
+            mainEl.textContent = "SCORE 0: Try Again"
+        }
     }, 1000);
 }
 
+function saveScore() {
+    clearInterval(timerInterval)
+    var currentScores = JSON.parse(localStorage.getItem("userscores")) || []
+    var scoreSave = {
+        player: initialsInput.value,
+        score: score
+    }
+    currentScores.push(scoreSave)
+    topScores = sortTopScores(currentScores)
+    localStorage.setItem("userscores", JSON.stringify(currentScores))
+}
 
-//local storage highscore function
+submitscoreButton.addEventListener("click", function (event) {
+    event.preventDefault
+    saveScore()
+})
+
+function saveScore() {
+    clearInterval(timerInterval)
+    var currentScores = JSON.parse(localStorage.getItem("userscores")) || []
+    var scoreSave = {
+        player: initialsInput.value,
+        score: score
+    }
+    currentScores.push(scoreSave)
+    topScores = sortTopScores(currentScores)
+    localStorage.setItem("userscores", JSON.stringify(currentScores))
+}
+
+submitscoreButton.addEventListener("click", function (event) {
+    event.preventDefault
+    saveScore()
+})
+
+function sortTopScores(allScores) {
+    const sortedScores = allScores.sort((a, b) => {
+        if (a.score > b.score) {
+            return 1
+        }
+        return -1
+    })
+
+    if (sortedScores.length < 3) {
+        return sortedScores
+    }
+
+    const topThreeScores = sortedScores.slice(2)
+
+    return topThreeScores
+}
+
 highscoreButton.addEventListener("click", function (event) {
     event.preventDefault;
     startButton.style.visibility = 'hidden';
-    mainEL.textContent = "Highscores";
-    savescore();
+    mainEl.textContent = "Highscores";
 })
-
-
-var userscores = JSON.parse(localStorage.getItem("Highscores")) || []
-
-// savescore();
-var initials = "user input"
-
-function savescore() {
-    localStorage.setItem("Highscores", JSON.stringify(userscores))
-    userscores.push([initials, score])
-}
-
-
-
-// quiz questions and answers
-// var quizQuestions = [
-//     {
-//         question: "Placeholder for Question 1?",
-//         answers: {
-//             a: 'possible answer 1',
-//             b: 'possible correct answer 2',
-//             c: 'possible answer 3',
-//             d: 'possible answer 4'
-//         },
-//         correctAnswer: 'b'
-//     },
-//     {
-//         question: "Placeholder for Question 2?",
-//         answers: {
-//             a: 'possible answer 1',
-//             b: 'possible answer 2',
-//             c: 'possible answer 3',
-//             d: 'possible correct answer 4'
-//         },
-//         correctAnswer: 'd'
-//     },
-//     {
-//         question: "Placeholder for Question 3?",
-//         answers: {
-//             a: 'possible answer 1',
-//             b: 'possible answer 2',
-//             c: 'possible correct answer 3',
-//             d: 'possible answer 4'
-//         },
-//         correctAnswer: 'c'
-//     },
-//     {
-//         question: "Placeholder for Question 4?",
-//         answers: {
-//             a: 'possible correct answer 1',
-//             b: 'possible answer 2',
-//             c: 'possible answer 3',
-//             d: 'possible answer 4'
-//         },
-//         correctAnswer: 'a'
-//     }
-// ];
-
-// // //how to create the quiz
-// generateQuiz(quizQuestions, quizContainer, resultsContainer, submitButton);
-
-// // // quiz function and layout 
-// function generateQuiz(questions, quizContainer, resultsContainer, submitButton) {
-//     function showQuestions(questions, quizContainer)
-// }
-// // // need a place to store possible answer choices
-// // var output = [];
-// // var answers;
-// // * /
-// // // for each question:
-// // for (var i = 0; i < questions.length; i++) {
-
-// // }
 
 var question1 = document.getElementById("question-1")
 var question2 = document.getElementById("question-2")
@@ -126,27 +98,28 @@ var question4 = document.getElementById("question-4")
 var correctAnswer = document.getElementById("q1a2")
 
 correctAnswer.addEventListener("click", function () {
-    correctAnswer.style.background = "green";
     question1.style.visibility = "hidden";
     question2.style.visibility = "visible";
 })
 var wrongAnswer1 = document.getElementById("q1a1")
 wrongAnswer1.addEventListener("click", function () {
+    score - 5;
     wrongAnswer1.style.background = "red";
 })
 var wrongAnswer2 = document.getElementById("q1a3")
 wrongAnswer2.addEventListener("click", function () {
+    score - 5;
     wrongAnswer2.style.background = "red";
 })
 var wrongAnswer3 = document.getElementById("q1a4")
 wrongAnswer3.addEventListener("click", function () {
+    score - 5;
     wrongAnswer3.style.background = "red";
 })
 
 // Question #2
 correctAnswer = document.getElementById("q2a3")
 correctAnswer.addEventListener("click", function () {
-    correctAnswer.style.background = "green";
     question2.style.visibility = "hidden";
     question3.style.visibility = "visible";
 })
@@ -164,12 +137,9 @@ wrongAnswer6.addEventListener("click", function () {
     wrongAnswer6.style.background = "red";
 })
 
-
-
 // Question #3
 correctAnswer = document.getElementById("q3a3")
 correctAnswer.addEventListener("click", function () {
-    correctAnswer.style.background = "green";
     question3.style.visibility = "hidden";
     question4.style.visibility = "visible";
 })
@@ -191,7 +161,6 @@ wrongAnswer9.addEventListener("click", function () {
 // Question #4
 correctAnswer = document.getElementById("q4a1")
 correctAnswer.addEventListener("click", function () {
-    correctAnswer.style.background = "green";
     clearInterval(timerInterval);
     var passedQuiz = true;
     return passedQuiz;
@@ -212,3 +181,4 @@ var wrongAnswer12 = document.getElementById("q4a4")
 wrongAnswer12.addEventListener("click", function () {
     wrongAnswer12.style.background = "red";
 })
+
